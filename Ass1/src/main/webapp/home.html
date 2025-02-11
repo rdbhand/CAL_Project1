@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+<style>
+.main{
+	background-color:inherit;;
+	width:98vw;
+	margin:8px auto;
+	height:auto;
+	border-radius:7px;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+}
+.main *{
+	padding:10px;
+}
+
+.main img{
+	border-radius:20px;
+}
+
+.btn{
+	background-color:purple;
+	padding:7px;
+	border:none;
+	border-radius:2px;
+	list-style-type:none;
+	color:white;
+	margin-bottom:150px;
+	width:100px;
+	position:relative;
+}
+
+.drop_down{
+	display:none;
+	position:absolute;
+	left:50vw-60px;
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+	width:100px;
+}
+
+
+
+.drop_down button{
+	width:100%;
+	background-color:rgb(95, 24, 161);
+	border:none;
+	border-radius:5px;
+	cursor: pointer;
+	color: white;
+}
+
+.drop_down button:hover{
+	background-color: green;
+}
+
+.btn:hover .drop_down {
+    display: block;
+    margin:auto;
+}
+
+.features h2{
+	color:black;
+	text-align:center;
+	margin:10px;
+}
+.grid{
+	display:grid;
+	width:70vw;
+	height:auto;
+	margin:auto;
+	grid-template-rows:100px 100px;
+	grid-template-columns:45% 45%;
+	row-gap:10px;
+	column-gap:10%;
+}
+
+.box{
+	background-color:white;
+	border-radius:5px 0;
+	text-align:center;
+	color:brown;
+	box-shadow:5px 5px 10px 0px black;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+
+</style>
+</head>
+<body>
+	<div class="main">
+	<img src=./images/veg-tiffin-service.jpg width="500px">
+	<h1>Welcome to Shivshambhu Tiffin Service</h1>
+	<h4>Manage Users, Track Plan, Track Time Table</h4>
+	
+	<div class="btn">
+	<span>Get Started</span>
+	<div class="drop_down">
+		<button onclick="switch_user('user')">User</button>
+		<button onclick="switch_user('owner')">Owner</button>
+	</div>
+	</div>
+	
+	<div class="features">
+		<!--<h2>****** Key Features ******</h2>-->
+		<div class="grid">
+			<div class="box">Pay Fees</div>
+			<div class="box">Manage Meal TimeTable</div>
+			<div class="box">Cancle Meal</div>
+			<div class="box">Generate Bill</div>
+		</div>
+	</div>
+	<script>
+		function switch_user(user_name){
+			if(user_name=="user"){
+				window.location.replace(user_name+"_reg.html");
+			}
+			else{
+				window.location.replace(user_name+"_login.html");
+			}
+			
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Register</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .user_form{
+      text-align: center;
+      width:450px;
+      margin: 15px auto;
+      border-radius:7px;
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      border:1px solid black;
+    }
+    .user_form *{
+      margin: 0px;
+      padding:5px;
+      color:green;
+      border-radius:7px;
+    }
+    .user_form label{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width:80%;
+      margin: auto;
+    }
+    input[type=text][type=email][type=password]{
+      width: 70%;
+    }
+    select, textarea{
+      width: 60%;
+    }
+    h1{
+      color:green;
+    }
+    button{
+      width: 100px;
+      background-color: green;
+      color: white!important;
+    }
+    .link_btn{
+      border: none;
+      width: 100%;
+      background-color: inherit;
+      color:blue !important;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    #login_form{
+      display: none;
+    }
+
+    @media(max-width:650px){
+      .user_form{
+        width:350px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form class="user_form" action="UserRegister" id="register_form" method="post">
+      <h1>User Register</h1><br>
+      <label for="name">Name : <input id="name" type="text" name="name" placeholder="Enter name here..." required></label><br>
+      <label for="email">Email : <input id="email" type="email" name="email" placeholder="Enter email here..." required></label><br>
+      <label for="phone">Phone No : <input id="phone" type="tel" name="phone_no" placeholder="Enter phone no. here..." required></label><br>
+      <label>College : <select name="college">
+        <option value="engineering">Engineering College</option>
+        <option value="deploma">Deploma College</option>  
+        <option value="junior">Junior College</option>
+        <option value="farmacy">Farmacy College</option>
+        <option value="NA">NA</option>
+      </select></label><br>
+      <label>Gender : <input type="radio" name="gender" value="male"> Male 
+               <input type="radio" name="gender" value="female"> Female </label><br>
+
+      <label for="address">Address : <textarea id="address" name="address" placeholder="Enter address here ..." required></textarea></label><br>
+      <label for="password">Password : <input type="password" name="password" id="password"></label>
+      <label for="con_password">Confirm Password : <input type="password" name="con_password" id="con_password"></label>
+      <label>
+        <button type="submit">Register</button><br>
+        <button type="reset">Clear</button>
+      </label><br>
+      <label><button type="button" class="link_btn" onclick="switch_form('login')">Have an Account? Login</button></label>
+      
+  </form>
+
+  <form class="user_form" id="login_form" action="UserLogin" method="post">
+    <h1>User Login</h1><br>
+      <label for="email">Email : <input id="email" type="email" name="email" required></label><br>
+      <label for="name">Password : <input id="name" type="password" name="password" required></label><br>
+      <label>
+        <button type="submit">Login</button><br>
+        <button type="reset">Clear</button>
+      </label><br>
+      <label><button type="button" class="link_btn" onclick="switch_form('register')">Doesn't Registered? Register</button></label>
+  </form>
+
+
+
+  <script>
+
+    function switch_form(x){
+      if(x=="login"){
+        document.getElementById('register_form').style.display='none';
+        document.getElementById('login_form').style.display='block';
+      }
+      else{
+        document.getElementById('register_form').style.display='block';
+        document.getElementById('login_form').style.display='none';
+      }
+    }
+  </script>
+</body>
+</html>

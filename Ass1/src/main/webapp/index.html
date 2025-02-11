@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tiffin Management System</title>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing:border-box;
+	font-weight:bold;
+	color:white;
+	font-family:Arial;
+	letter-spacing:2px;
+}
+
+.nav1{
+	width:100vw;
+	height:9vh;
+	display:flex;
+	flex-direction:row;
+	justify-content:space-between;
+	align-items:center;
+	background-color:purple;
+	position: fixed;
+	border:2px solid red;
+	
+}
+
+.dummy{
+	width:100vw;
+	height:9vh;
+	display:flex;
+	flex-direction:row;
+	justify-content:space-between;
+	align-items:center;
+	background-color:purple;
+}
+
+h1{
+	color:darkblue;
+}
+
+.tit{
+	margin:30px;
+	width:50%;	
+}
+
+.nav2{
+	width:50%;
+	display:flex;
+	flex-direction:row;
+	justify-content:space-evenly;
+}
+
+button{
+	background-color:inherit;
+	padding:5px;
+	border:none;
+}
+
+
+</style>
+</head>
+<body>
+	<div class="nav1">
+		<div class="tit">Shivshambhu Tiffin Service</div>
+		<div class="nav2">
+		<button id="home_link" onclick="load_frame1('home')">Home</button>
+		<button id="about_link" onclick="load_frame1('about')">About</button>
+		<button id="contact_link" onclick="load_frame1('contact')">Contact</button>
+		</div>
+	</div>
+	<div class="dummy"></div>
+	<iframe id="frame1" width=100% height=1000px src="home.html"></iframe>
+	
+<script>function load_frame1(frame){
+	document.getElementById('frame1').src=frame+'.html';
+}</script>
+</body>
+</html>
+
+
+
+

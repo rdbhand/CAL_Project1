@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Owner Dashboard</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .box{
+      display:flex;
+      flex-direction: row;
+      height: 100vh;
+    }
+    #left{
+      width: 20vw;
+      height: 100vh;
+      background-color: blue;
+      display: block;
+    }
+    #left button{
+      width: 85%;
+      margin: 15px;
+      padding: 10px;
+    }
+    #right{
+      width: 80vw;
+      height: auto;
+      background-color: white;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 0px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+  <div id="left">
+    <button onclick="fetchUsers()">Fetch Users Data</button>
+  </div>
+  <div id="right">
+  </div>
+  </div>
+
+  
+  <script>
+    function fetchUsers(){
+      fetch("http://localhost:8080/Ass1/FetchUsers").then(data=>{
+        return data.json();
+      }).then(users=>{
+        users.map((obj)=>{
+          let ele=document.createElement('div');
+          ele.className="box";
+          ele.style.width="20vw";
+          ele.style.height="auto";
+          ele.style.border="2px solid black";
+          ele.style.margin="15px 10px";
+          ele.style.padding="15px";
+          ele.innerHTML=`Name : ${obj.name} <br>
+                         Email : ${obj.email}<br>
+                         Phone_no : ${obj.phone_no}<br>
+                         College : ${obj.college}<br>
+                         Gender : ${obj.gender}<br>
+                         Address : ${obj.address}<br>
+                         `;
+          document.getElementById('right').appendChild(ele);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
